@@ -1,7 +1,25 @@
 <script setup lang="ts">
+import { store } from './store';
+import { ref } from 'vue';
+import TheTitle from './components/TheTitle.vue';
+import ThePlayersVue from './components/ThePlayers.vue';
+
+const title: string = "TIC TAC TOE";
+const subtitle: string = "By Fernando Diez";
+
+const xPlayer = ref('');
+const oPlayer = ref('');
+</script>
+
+<template>
+  <TheTitle :title="title" :subtitle="subtitle" />
+  <ThePlayersVue :xPlayer="xPlayer" :oPlayer="oPlayer" />
+</template>
+
+<!-- <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-</script>
+</s>
 
 <template>
   <header>
@@ -44,4 +62,4 @@ header {
     flex-wrap: wrap;
   }
 }
-</style>
+</style> -->

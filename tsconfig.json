@@ -1,4 +1,8 @@
 {
+  "compilerOptions": {
+    /* Bundler mode */
+    "allowImportingTsExtensions": true,
+  },
   "files": [],
   "references": [
     {
