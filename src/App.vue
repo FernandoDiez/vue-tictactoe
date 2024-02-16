@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { store } from './store';
 import { ref } from 'vue';
 import TheTitle from './components/TheTitle.vue';
 import ThePlayersVue from './components/ThePlayers.vue';
@@ -7,59 +6,20 @@ import ThePlayersVue from './components/ThePlayers.vue';
 const title: string = "TIC TAC TOE";
 const subtitle: string = "By Fernando Diez";
 
-const xPlayer = ref('');
-const oPlayer = ref('');
+const counter = ref(0);
+const xPlayer = ref('Candela');
+const oPlayer = ref('Alejandra');
+
+const sumaUno = (cant: number) => {
+  counter.value += cant;
+}
+
+const nameX = (name: string) => {
+  xPlayer.value = name;
+}
 </script>
 
 <template>
   <TheTitle :title="title" :subtitle="subtitle" />
-  <ThePlayersVue :xPlayer="xPlayer" :oPlayer="oPlayer" />
+  <ThePlayersVue :xPlayer="xPlayer" :oPlayer="oPlayer" :counter="counter" @sumaUno="sumaUno" @nameX="nameX" />
 </template>
-
-<!-- <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</s>
-
-<template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it! Lo dejo mejor como estaba al principio" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
-</template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style> -->
